@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>API Minecraft Blocks</title>
+  <style>
+    body {
+      font-family: 'Minecraftia', sans-serif;
+      background: url('https://i.imgur.com/3KXgk1M.png') repeat; /* Patrón pixelado */
+      color: #eee;
+      text-align: center;
+      padding: 2rem;
+    }
+    h1 {
+      font-size: 2.5rem;
+      color: #fefcea;
+      text-shadow: 2px 2px #000;
+      margin-bottom: 1rem;
+    }
+    .form-container {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 1rem;
+      border: 3px solid #444;
+      display: inline-block;
+      margin-bottom: 2rem;
+    }
+    .form-container div {
+      margin: 0.5rem 0;
+    }
+    label {
+      display: inline-block;
+      width: 100px;
+      text-align: right;
+    }
+    input[type="text"] {
+      width: 200px;
+      padding: 0.3rem;
+      border: 2px solid #888;
+      background: #222;
+      color: #eee;
+      font-family: inherit;
+    }
+    .mc-btn {
+      background: #5ea319;
+      border: 2px solid #3b661e;
+      padding: 0.4rem 0.8rem;
+      margin: 0.3rem;
+      cursor: pointer;
+      font-family: inherit;
+      text-shadow: 1px 1px #000;
+    }
+    .mc-btn-del {
+      background: #a32f19;
+      border: 2px solid #661f1a;
+      padding: 0.4rem 0.8rem;
+      margin: 0.3rem;
+      cursor: pointer;
+      font-family: inherit;
+      text-shadow: 1px 1px #000;
+    }
+    .mc-table {
+      margin: 0 auto;
+      border-collapse: collapse;
+      width: 90%;
+    }
+    .mc-table th, .mc-table td {
+      border: 2px solid #444;
+      padding: 0.5rem;
+      background: rgba(0,0,0,0.6);
+    }
+    .mc-table th {
+      background: #6d4c41;
+      color: #fff;
+    }
+    #resultado {
+      margin-top: 1.5rem;
+    }
+    @font-face {
+      font-family: 'Minecraftia';
+      src: url('https://s3.amazonaws.com/fonts.minecraftia/Minecraftia.woff') format('woff');
+    }
+  </style>
+</head>
+<body>
+  <h1>Gestión de Minecraft Blocks</h1>
+
+  <div class="form-container">
+    <input type="hidden" id="blockId">
+    <div><label>Bloque:  </label><input type="text" id="bloque"></div>
+    <div><label>Tipo:  </label><input type="text" id="tipoBloque"></div>
+    <div><label>Bioma:  </label><input type="text" id="bioma"></div>
+    <div><label>Uso:  </label><input type="text" id="uso"></div>
+    <div><label>Crafteo:  </label><input type="text" id="crafteo"></div>
+    <div><label>Herramienta:  </label><input type="text" id="herramienta"></div>
+    <div><label>Color:  </label><input type="text" id="color"></div>
+    <button class="mc-btn" onclick="postBlock()"> POST Block </button>
+    <button class="mc-btn" onclick="updateBlock()"> PUT Block </button>
+    <button class="mc-btn" onclick="getBlocks()"> GET Blocks </button>
+  </div>
+
+  <div id="resultado"></div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="callrestapi.js"></script>
+</body>
+</html>
+
